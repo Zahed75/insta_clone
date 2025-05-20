@@ -21,16 +21,32 @@ class _HomeState extends State<Home> {
                 Positioned(
                   child: Container(
                     height: 500,
-                    color: Colors.yellow,
+
                     child: Stack(
                       children: [
                         Positioned(
-                          child: Container(color: Colors.red, height: 450),
+                          child: Container(
+                            height: 450,
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(
+                                  'https://yt3.googleusercontent.com/Afue70OQPNnFOQgwim8nsO78k7M9MmzpJmpN38J2vomalbhwoJ_8eyt8H6A6SWqlEwKmSg-q4Q=s900-c-k-c0x00ffffff-no-rj',
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                         Positioned(
                           bottom: 0,
                           right: 24,
-                          child: CircleAvatar(radius: 50),
+                          child: CircleAvatar(
+                            radius: 50,
+                            backgroundImage: NetworkImage(
+                              'https://futurestartup.com/wp-content/uploads/2023/11/Future-Startup-Article-Banner-Designs-46.jpg',
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -40,18 +56,18 @@ class _HomeState extends State<Home> {
             ),
             Container(
               padding: EdgeInsets.all(10),
-              color: Colors.blue,
+
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Osaka City for the Mobile Dev',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    'redefine modern retail and shape the future of E-grocery',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
 
                   SizedBox(height: 10),
                   Text(
-                    'Osaka City for the Mobile Dev',
+                    'Operated by ACI Logistics Limited',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
