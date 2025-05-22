@@ -135,6 +135,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         height: 70,
                         width: 70,
                         decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              'https://yt3.googleusercontent.com/Afue70OQPNnFOQgwim8nsO78k7M9MmzpJmpN38J2vomalbhwoJ_8eyt8H6A6SWqlEwKmSg-q4Q=s900-c-k-c0x00ffffff-no-rj',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
                           shape: BoxShape.circle,
                           color: Colors.black12,
                         ),
@@ -156,8 +162,28 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             ),
           ),
 
-          Container(height: 100, color: Colors.white24),
-          Expanded(child: Container(color: Colors.amberAccent)),
+          Container(height: 100, color: Colors.blue),
+          Expanded(
+            child: Container(
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                ),
+                itemBuilder: (context, index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey.shade200,
+                    ),
+                    height: 150,
+                    width: 150,
+
+                    margin: EdgeInsets.all(5),
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
