@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_clone/Screen/home/profile.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,7 +20,7 @@ class _HomeState extends State<Home> {
             Stack(
               children: [
                 Positioned(
-                  child: Container(
+                  child: SizedBox(
                     height: 500,
 
                     child: Stack(
@@ -77,7 +78,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: 50,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -98,6 +99,25 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.all(10),
               child: Text(
                 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s',
+              ),
+            ),
+
+            Container(
+              alignment: Alignment.centerRight,
+              padding: EdgeInsets.only(right: 10),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfileWidget()),
+                  );
+                },
+                icon: Icon(
+                  Icons.arrow_forward,
+                  size: 30,
+                  color: Colors.redAccent,
+                ),
+                tooltip: 'Next',
               ),
             ),
           ],
