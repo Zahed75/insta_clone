@@ -28,6 +28,8 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        multiDexEnabled true
+        
     }
 
     buildTypes {
@@ -41,4 +43,10 @@ android {
 
 flutter {
     source = "../.."
+}
+
+
+dependencies{
+    implementation(platform("com.google.firebase:firebase-bom:33.14.0"))
+    implementation("com.google.firebase:firebase-analytics")
 }
