@@ -86,7 +86,9 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget> {
                   onPressed: () {
                     if (_formkey.currentState!.validate()) {
                       _formkey.currentState!.save();
-                      signup(email, password);
+                      isLogin
+                          ? signin(email, password)
+                          : signup(email, password);
                     }
                   },
                   child: !isLogin ? Text("SignUp") : Text("Login"),
