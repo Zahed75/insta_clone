@@ -60,11 +60,16 @@ class SilverScreenWidget extends StatelessWidget {
               backgroundColor: Colors.deepPurple,
               expandedHeight: 200,
               flexibleSpace: FlexibleSpaceBar(
+                titlePadding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
+                centerTitle: false,
                 background: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "\$534343",
+                      "\$1.000",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 36,
@@ -72,18 +77,67 @@ class SilverScreenWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Current Balance",
+                      "Current Ranking",
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ],
                 ),
-                title: Text("Wallet", style: TextStyle(color: Colors.white)),
+                title: Text("Ranking", style: TextStyle(color: Colors.white)),
+              ),
+            ),
+            SliverAppBar(
+              pinned: true,
+              backgroundColor: Colors.white,
+              expandedHeight: 140,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Quick Actions",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          _buildQuickAction(icon: Icons.send, label: 'Send'),
+                          _buildQuickAction(
+                            icon: Icons.receipt,
+                            label: 'Reciept',
+                          ),
+                          _buildQuickAction(icon: Icons.add, label: 'Add'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
             SliverFillRemaining(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildQuickAction({required IconData icon, required String label}) {
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 30,
+          backgroundColor: Colors.deepPurple.withOpacity(0.1),
+          child: Icon(icon, color: Colors.deepPurple, size: 30),
+        ),
+        SizedBox(height: 10),
+        Text(label, style: TextStyle(fontSize: 14)),
+      ],
     );
   }
 }
