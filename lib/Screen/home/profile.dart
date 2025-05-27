@@ -47,7 +47,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         ),
                       ),
                       Text(
-                        "E-Grocery in your town",
+                        "Egrocery in your town",
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
@@ -162,7 +162,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             ),
           ),
 
-          Container(height: 100, color: Colors.blue),
+          Container(height: 100, color: Colors.redAccent),
           Expanded(
             child: Container(
               child: GridView.builder(
