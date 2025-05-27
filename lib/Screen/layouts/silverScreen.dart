@@ -89,6 +89,7 @@ class SilverScreenWidget extends StatelessWidget {
               pinned: true,
               backgroundColor: Colors.white,
               expandedHeight: 140,
+              toolbarHeight: 140,
               flexibleSpace: FlexibleSpaceBar(
                 background: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -120,6 +121,29 @@ class SilverScreenWidget extends StatelessWidget {
                 ),
               ),
             ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Text(
+                  " Recent Transaction",
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                return _buildTransactionTitle(
+                  title: 'Transaction $index',
+                  subtitle: 'Details',
+                  ammount: (index.isEven ? '+' : '-') + '\$${(index + 1) * 20}',
+                  isPositive: index.isEven,
+                );
+              }, childCount: 20),
+            ),
             SliverFillRemaining(),
           ],
         ),
@@ -138,6 +162,39 @@ class SilverScreenWidget extends StatelessWidget {
         SizedBox(height: 10),
         Text(label, style: TextStyle(fontSize: 14)),
       ],
+    );
+  }
+
+  Widget _buildTransactionTitle({
+    required String title,
+    required String subtitle,
+    required String ammount,
+    required isPositive,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: ListTile(
+          leading: CircleAvatar(
+            backgroundColor: Colors.deepPurple.withOpacity(0.1),
+            child: Icon(
+              isPositive ? Icons.arrow_upward : Icons.arrow_downward,
+              color: isPositive ? Colors.green : Colors.red,
+            ),
+          ),
+          title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+          subtitle: Text(subtitle),
+          trailing: Text(
+            ammount,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: isPositive ? Colors.green : Colors.red,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
